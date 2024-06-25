@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Copyright (c) 2024 - Kevin casasbuenas (https://kincasasbuenas.dev/)
+ * @author      Kevin Casasbuenas <kincasasbuenas@outlook.com>
+ * @category    Kinuz
+ * @module      Kinuz/ScrollTop
+ */ 
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block 
+                name="scrolltop"
+                template="Kinuz_ScrollTop::scroll-top.phtml"
+                ifconfig="scrolltop/general/enable"
+                after="-">
+                <arguments>
+                    <argument name="scrolltop_view_model" xsi:type="object">Kinuz\ScrollTop\ViewModel\Data</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

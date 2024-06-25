@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright (c) 2024 - Kevin casasbuenas (https://kincasasbuenas.dev/)
+ * @author      Kevin Casasbuenas <kincasasbuenas@outlook.com>
+ * @category    Kinuz
+ * @module      Kinuz/ScrollTop
+ */ 
+
+declare(strict_types=1);
+
+use Magento\Framework\Escaper;
+use Kinuz\ScrollTop\ViewModel\Data;
+
+/**
+ * 
+ * @var Data   $viewModelScrollTop
+ * @var Escaper  $escaper
+ */
+
+$viewModelScrollTop = $block->getScrolltopViewModel();
+$vertical_space = $viewModelScrollTop->getVerticalSpace() === '' ? '30px' : $viewModelScrollTop->getVerticalSpace().'px';
+$position = $viewModelScrollTop->getPosition() === 'left' ? 'left:'.$vertical_space : 'right:'.$vertical_space;
+$bottom = $viewModelScrollTop->getBottomSpace() === '' ? '50px' : $viewModelScrollTop->getBottomSpace().'px';
+?>
+<div class="scroll-top" style="<?= $position ?>;bottom:<?= $bottom ?>">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+</div>
